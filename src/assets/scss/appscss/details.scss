@@ -1,0 +1,50 @@
+.details {
+    @include flexbox();
+    @include flex-direction(column);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(#709B94,#3D738B);
+    .top {       
+        @include flexbox();
+        @include justify-content(center);
+        @include align-items(center);
+        padding: .1rem;
+        a,&>i {
+            width: .4rem;
+            font-size: 23px;
+            color: rgba(255,255,255,.5);
+        }
+        span {
+            @include flex();
+            color: #fff;
+            text-align: center;
+            i {
+                font-size: 12px;
+                color: rgba(255,255,255,.5);
+            }
+        }
+    }
+    .pic {
+        @include flex();
+        @include flexbox();
+        @include justify-content(center);
+        @include align-items(center);
+        width: 100%;
+        img {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+        }
+    }
+    .lyrics {
+        width: 100%;
+        height: 2rem;
+    }
+    .ado {
+        width: 100%;
+        audio {
+            width: 100%;
+            background: #3D738B;
+        }
+    }
+}

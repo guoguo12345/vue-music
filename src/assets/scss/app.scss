@@ -1,0 +1,18 @@
+@charset "UTF-8";
+@import "./usage/core/reset.scss";
+
+@import "./swiper-3.4.0.min.css";
+
+@import "./usage/module/m-index.scss";
+
+//页面自定义样式
+//头部
+@import "./appscss/public.scss";
+
+@import "./appscss/my.scss";
+@import "./appscss/music.scss";
+@import "./appscss/details.scss";
+@import "./appscss/rankingdetail.scss";
+@import "./appscss/search.scss";
+@import "./appscss/login.scss";
+@import "./appscss/registor.scss";

@@ -1,0 +1,188 @@
+#music {
+    @include flexbox();
+    @include flex-direction(column);
+    width: 100%;
+    height: 100%;
+    .mu-header {
+        height: .44rem;
+        width: 100%;
+    }
+    .mu-nav {
+        width: 100%;
+        height: .3rem;
+        .music-nav {
+            width: 100%;
+            height: 100%;
+            & > ul {
+                @include flexbox();
+                @include justify-content(center);
+                @include align-items(center);
+                width: 100%;
+                background: #33CCCC;
+                li {
+                    @include flex();
+                    padding: 5px .1rem;
+                    text-align: center;
+                    color: rgba(255,255,255,.5);
+                    font-size: 12px;
+                    &.active {
+                        border-bottom: 1px solid #fff;
+                        color: #fff
+                    }
+                }
+            } 
+        }
+    }  
+    .mu-swiper {
+        @include flex();
+        width: 100%;
+        overflow-y: scroll;
+        .out-swiper {
+            width: 100%;
+            .commend {
+                width: 100%;
+                #innerSwiper {
+                    width: 100%;
+                    img {
+                        width: 100%;
+                    }
+                }
+                .sort {
+                    @include flexbox();
+                    @include justify-content(center);
+                    @include align-items(center);
+                    width: 100%;
+                    li {
+                        @include flex();
+                        @include flexbox();
+                        @include flex-direction(column);
+                        @include justify-content(center);
+                        @include align-items(center);
+                        i {
+                            color: #33CCCC;
+                            font-size: 23px;
+                        }
+                        b {
+                            font-weight: normal;
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+            .mu-newMusic {
+                width: 100%;
+                .newMusic {
+                    @include flexbox();
+                    @include flex-direction(column);
+                    @include justify-content(center);
+                    @include align-items(center);
+                    width: 100%;
+                    & > h3 {
+                        padding: .1rem 0;
+                        i {
+                            color: #808080;
+                        }
+                    }
+                    ul {
+                        @include flexbox();
+                        @include flex-direction(column);                 
+                        @include align-items(center);
+                        width: 100%;
+                        & > a {
+                            @include flexbox();
+                            @include justify-content(center);
+                            @include align-items(center);
+                            width: 100%;
+                            height: .5rem;
+                            padding: 3px .1rem;
+                            color: #000;
+                            img {
+                                height: 100%;
+                                padding-right: .1rem;
+                            }
+                            span {
+                                @include flex();                              
+                                white-space: nowrap;
+                                overflow: hidden;
+                                padding-right: .1rem;
+                                text-overflow: ellipsis;                                   
+                            }
+                            & > i {
+                                width: .4rem;
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+            }
+            .musicMenu {
+                @include flexbox();
+                @include flex-direction(column);
+                width: 100%;
+                & > div {
+                    font-size: 14px;
+                    padding: .1rem;
+                }
+                & > ul {
+                    @include flexbox();
+                    @include flex-wrap(wrap);
+                    width: 100%;
+                    padding-left: 8px;
+                    li {
+                        @include flexbox();
+                        @include flex-direction(column);
+                        width: 50%;
+                        padding: 8px 8px 8px 0;                      
+                        & > img {
+                            width: 100%;
+                        }
+                        & > i {
+                            font-size: 14px;
+                            padding: 3px 0;
+                        }
+                        span {
+                            @include flexbox();
+                            @include justify-content(center);
+                            @include align-items(center);
+                            img {
+                                width: .2rem;
+                            }
+                            i {
+                                @include flex();
+                                padding-left: .1rem;
+                                font-size: 12px;
+                                color: #ccc;
+                            }
+                        }
+                    }
+                }
+            }
+            .ranking {
+                @include flexbox();
+                @include flex-direction(column);
+                width: 100%;
+                padding: .1rem;
+                & > a {
+                    @include flexbox();
+                    width: 100%;
+                    margin-bottom: .1rem;
+                    color: #111;
+                    img {
+                        width: 1rem;
+                        height: 1rem;
+                        padding-right: .1rem;
+                    }
+                    & > div {
+                        @include flex();
+                        @include flexbox();
+                        @include align-items(center);
+                    }
+                }
+            }
+        }
+    } 
+    .mu-footer {
+        width: 100%;
+        height: .44rem;
+    }
+}
