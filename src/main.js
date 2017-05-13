@@ -4,6 +4,9 @@ import App from './App.vue';
 import VueResource from 'vue-resource';  
 Vue.use(VueResource);
 
+import axios from 'axios';  
+Vue.prototype.$ajax = axios;
+
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
@@ -25,19 +28,20 @@ const store = new Vuex.Store({
 		data: [],
 		list: [],
 		topid: 26,
-		lyric: "",
+		lyric: [],
+		
 		msg: {
-			songname: "You Don't Know Me",
-			seconds: 147,
-			albummid: "002MYcCp4RX9uy",
-			songid: 105051015,
-			singerid: 1051037,
-			albumpic_big: "http://i.gtimg.cn/music/photo/mid_album_300/u/y/002MYcCp4RX9uy.jpg",
-			albumpic_small: "http://i.gtimg.cn/music/photo/mid_album_90/u/y/002MYcCp4RX9uy.jpg",
-			downUrl: "http://dl.stream.qqmusic.qq.com/105051015.mp3?vkey=D7A5DE388C8D4D4112AFBB258F4D6A7F27F4082B119FC32080DB827E5DB512B21AA790F5C5BEC9C76BDB4B13D72C17B5ECE7517C05FAB424&guid=2718671044",
-			url: "http://ws.stream.qqmusic.qq.com/105051015.m4a?fromtag=46",
-			singername: "Ofenbach",
-			albumid: 1214628
+			// songname: "You Don't Know Me",
+			// seconds: 147,
+			// albummid: "002MYcCp4RX9uy",
+			// songid: 105051015,
+			// singerid: 1051037,
+			// albumpic_big: "http://i.gtimg.cn/music/photo/mid_album_300/u/y/002MYcCp4RX9uy.jpg",
+			// albumpic_small: "http://i.gtimg.cn/music/photo/mid_album_90/u/y/002MYcCp4RX9uy.jpg",
+			// downUrl: "http://dl.stream.qqmusic.qq.com/105051015.mp3?vkey=D7A5DE388C8D4D4112AFBB258F4D6A7F27F4082B119FC32080DB827E5DB512B21AA790F5C5BEC9C76BDB4B13D72C17B5ECE7517C05FAB424&guid=2718671044",
+			// url: "http://ws.stream.qqmusic.qq.com/105051015.m4a?fromtag=46",
+			// singername: "Ofenbach",
+			// albumid: 1214628
 		},
 		isPlay: false
 	},
@@ -71,7 +75,9 @@ const store = new Vuex.Store({
 		},
 		getLyric(state) {
 			Vue.http.get(`http://route.showapi.com/213-2?showapi_appid=35530&musicid=${state.msg.songid}&showapi_sign=0e82d665e72047d89be96225dbcb5fdb`).then(function(data){
-				state.lyric = data.body.showapi_res_body.lyric;
+				// state.lyric = data.body.showapi_res_body.lyric;
+				var lyric = data.body.showapi_res_body.lyric.split("[");
+				state.lyric = lyric;
 				console.log(state.lyric);
 			},function() {
 				console.log(err);
@@ -82,15 +88,14 @@ const store = new Vuex.Store({
 		},
 		getDetailArr(state,item) {
 			state.msg = item;
-			console.log(state.msg);
+			// console.log(state.msg);
 			if(state.isPlay==false) {
 				$("audio").attr("autoplay",true);
 				$(".playBtn").removeClass("icon-ttpodicon").addClass("icon-weibiaoti1");
 				state.isPlay = true;
-				console.log(state.isPlay);
-				console.log($("audio")[0].autoplay);
+				// console.log(state.isPlay);
+				// console.log($("audio")[0].autoplay);
 			}
-			
 		},
 		playControl(state) {
 			if(state.isPlay) {

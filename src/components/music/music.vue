@@ -31,10 +31,22 @@
 	  	"v-swiper": OutSwiper,
 	  	"v-footer": Footer
 	  },
+	  beforeMount() {
+	  		this.$ajax(`http://route.showapi.com/213-4?showapi_appid=35530&topid=26&showapi_sign=0e82d665e72047d89be96225dbcb5fdb`).then(function(data) {
+					console.log(data.data.showapi_res_body.pagebean.songlist);
+				// if(data.body.showapi_res_body.pagebean.songlist) {
+				// 	console.log(data.body.showapi_res_body.pagebean.songlist);
+				// }else {
+				// 	console.log("网络错误");
+				// }
+			},function(){
+				console.log(err);
+			});
+	  },
 	  mounted() {
 		
 		   
-		}
+	  }
 	  
 	}
 </script>

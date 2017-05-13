@@ -38,7 +38,22 @@
     }
     .lyrics {
         width: 100%;
-        height: 2rem;
+        height: 3.2rem;
+        overflow: hidden;
+        padding-bottom: 20px;
+        p {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 20px;
+            .time {
+//                display: none;
+            }
+        }
     }
     .ado {
         width: 100%;
